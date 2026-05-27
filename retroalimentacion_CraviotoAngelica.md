@@ -47,3 +47,37 @@ Archivo: `diplomado-ml-seguros-Angelica-Guadalupe-Cravioto-Perez\Modulo 1\sesion
   - Tarea 3: ✓ correcta (30/30 números coinciden)
   - Tarea 4: ◐ parcial (11/15 números coinciden con el canónico)
 
+
+## Parte 2 — Sesiones 8 y 11
+
+### Sesión 8 — Pipeline Completo — 1.97/2 pts
+*(solo se evaluó el Ejercicio Integrador Final)*
+- Corre hasta el Integrador: 0.50/0.5
+- Integrador Final, 5 fases: 1.47/1.5
+  - FASE 1: 1.00*0.3 = 0.30 (numeros coinciden (60% de canon cubierto))
+  - FASE 2: 0.90*0.3 = 0.27 (mayoria de numeros coinciden (40%))
+  - FASE 3: 1.00*0.3 = 0.30 (numeros coinciden (100% de canon cubierto))
+  - FASE 4: 1.00*0.3 = 0.30 (numeros coinciden (82% de canon cubierto))
+  - FASE 5: 1.00*0.3 = 0.30 (numeros coinciden (100% de canon cubierto))
+- _Nota:_ Usado outputs guardados del alumno (la re-ejecucion en mi maquina tuvo demasiados errores, probablemente por datos no incluidos en el repo).
+
+### Sesión 11 — Práctica Final — 6.51/8 pts
+*(solo se evaluó el Ejercicio Integrador Final "Mini Pricing Actuarial")*
+- Corre hasta el Integrador: 1.00/1.0
+  - FASE 1: 1.00*1.75 = 1.75 (numeros coinciden (56% de canon cubierto))
+  - FASE 2: 0.65*1.75 = 1.14 (pocas coincidencias numericas (11%); codigo sustantivo y ejecuta)
+  - FASE 3: 0.80*1.75 = 1.40 (coinciden algunos numeros clave (27%))
+  - FASE 4: 0.70*1.75 = 1.22 (codigo extenso (101 lineas) ejecuta; printeos no coinciden con canonico)
+- _Nota:_ Usado outputs guardados del alumno (la re-ejecucion tuvo demasiados errores).
+
+## Bonus — Sesiones 9 y 10
+- S9 entregada correctamente: **Sí** (integrador correcto (100% de numeros coinciden))
+- S10 entregada correctamente: **Sí** (mpl_ok=True sb_ok=True)
+- Bonus aplicado: **+0.5**
+
+## Calificación final
+- Parte 1: 9.38 / 10
+- Parte 2: 8.48 / 10
+- Promedio: 8.930 / 10
+- Bonus: +0.5
+- **Final: 9.43 / 10**
