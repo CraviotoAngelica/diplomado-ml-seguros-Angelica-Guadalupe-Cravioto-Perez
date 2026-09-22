@@ -81,3 +81,35 @@ Archivo: `diplomado-ml-seguros-Angelica-Guadalupe-Cravioto-Perez\Modulo 1\sesion
 - Promedio: 8.930 / 10
 - Bonus: +0.5
 - **Final: 9.43 / 10**
+
+---
+
+# Retroalimentación — Módulo 4 · Tema 2 (GLM con Python)
+
+**Alumno:** Angelica Guadalupe Cravioto Perez
+**Variable asignada:** `uso`
+
+> Nota: tus respuestas se calificaron a partir de `evaluacion_M4T2_Entrega.md`, donde guardaste tus respuestas reales (el `evaluacion_M4T2.md` de la raíz quedó como plantilla en blanco).
+
+## Desglose por pregunta
+
+| Pregunta | Pts | Comentario |
+|---|---|---|
+| P1 | 9/10 | Correcto: φ=1.1664 indica sobredispersión leve, confirmada por Cameron-Trivedi (p=3.7e-56), y concluyes QuasiPoisson. Te faltó mencionar explícitamente el valor de α=0.0744 (solo citas el p-value), pero la justificación y conclusión son correctas. |
+| P2 | 10/10 | Muy buen manejo del caso: para `uso`, el IC de Trabajo [0.9272, 1.0542] sí cruza 1 y p=0.7281 > 0.05 — identificas correctamente que no es significativo y propones agruparlo con la referencia. Justo el criterio que pide la rúbrica. |
+| P3 | 10/10 | Explicación completa y correcta del mecanismo de las ecuaciones de score y de las ventajas del GLM sobre la tabla empírica. |
+| P4 | 10/10 | CV constante, E[Y] directo con Gamma, por qué Lognormal no es GLM natural y la necesidad de corrección por sesgo en log(Y). Completo. |
+| P5 | 10/10 | Elección correcta de Binomial Negativa con AIC/BIC citados con precisión, y explicación adecuada del pseudo R² bajo. |
+| P6 | 10/10 | Correcto: frecuencia (-1.13%) y severidad (-1.32%) de Trabajo apuntan en la misma dirección; interpretación clara y bien conectada con la justificación de Frecuencia × Severidad. |
+| P7 | 9/10 | Distingues correctamente calibración (ratio≈1.0249) de discriminación (Gini=0.2315, modesto). Completo, aunque no explicitas el porcentaje de sobreestimación (~2.5%) como detalle adicional. |
+| P8 | 10/10 | Identificas Particular como prima pura más alta ($182.53, factor 1.0011=+0.11%) y Trabajo como más baja ($178.57, factor 0.9794=-2.06%). Buen detalle notar que incluso el nivel de referencia tiene un factor ligeramente distinto de 1. |
+| P9 | 10/10 | Excelente cierre: integras frecuencia, severidad y prima pura, y además señalas — con criterio actuarial correcto — que el efecto de frecuencia no es estadísticamente significativo (IC cruza 1), por lo que la diferenciación tarifaria debe validarse con más cuidado. Muestra comprensión profunda del tema. |
+
+## Redacción: 10/10
+
+Clara, profesional y con muy buena coherencia entre las tres partes.
+
+## Nota final: 98/100 (calificación: 9.8/10)
+
+## Comentarios generales
+Entrega excelente. Lo más destacable es tu manejo de la variable `uso`, donde el nivel Trabajo no es significativo (IC cruza 1, p=0.73): lo detectas correctamente en P2 y lo vuelves a traer en P9 para matizar la recomendación de tarifa, que es exactamente el tipo de razonamiento actuarial que se espera. Solo te faltaron pequeños detalles de exhaustividad (mencionar α explícitamente en P1, el % de sobreestimación en P7). Muy buen trabajo.
