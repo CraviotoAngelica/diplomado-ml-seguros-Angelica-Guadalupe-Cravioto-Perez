@@ -50,33 +50,56 @@ BANDINGS = {"edad_conductor":      [17, 30, 35, 45, 50, 55, 60, 95],
 # ─────────────────────────────────────────────────────────────────────────────
 # 1 · Carga de datos — desde SQLite, con red de seguridad para el deploy
 # ─────────────────────────────────────────────────────────────────────────────
+
+
 @st.cache_data
 def cargar_datos():
-    # si no existe la BD (p.ej. en el servidor), se construye desde el parquet
-    if not os.path.exists(RUTA_DB):
-        con0 = sqlite3.connect(RUTA_DB)
-        pd.read_parquet(ruta_parquet()).to_sql("cartera", con0, if_exists="replace", index=False)
-        con0.close()
+    # Comprobar si existe la base de datos
+    reconstruir = not os.path.exists(RUTA_DB)
 
-    con = sqlite3.connect(RUTA_DB)
-    df  = pd.read_sql("SELECT * FROM cartera", con)   # consulta SQL: trae la tabla
-    con.close()
+    # Verificar que exista la tabla cartera
+    if not reconstruir:
+        with sqlite3.connect(RUTA_DB) as con:
+            tablas = pd.read_sql_query(
+                "SELECT name FROM sqlite_master "
+                "WHERE type='table' AND name='cartera'",
+                con
+            )
+            reconstruir = tablas.empty
 
+    # Crear la base de datos desde el parquet si hace falta
+    if reconstruir:
+        df_base = pd.read_parquet(ruta_parquet())
+        with sqlite3.connect(RUTA_DB) as con:
+            df_base.to_sql(
+                "cartera", con, if_exists="replace", index=False
+            )
+
+    # Leer la tabla de pólizas
+    with sqlite3.connect(RUTA_DB) as con:
+        df = pd.read_sql_query("SELECT * FROM cartera", con)
+
+    # Crear las variables categóricas
     df["edad_conductor_cat"] = pd.cut(
-        df["edad_conductor"], bins=BANDINGS["edad_conductor"]
+        df["edad_conductor"],
+        bins=BANDINGS["edad_conductor"]
     )
-
     df["antiguedad_vehiculo_cat"] = pd.cut(
-        df["antiguedad_vehiculo"], bins=BANDINGS["antiguedad_vehiculo"]
+        df["antiguedad_vehiculo"],
+        bins=BANDINGS["antiguedad_vehiculo"]
     )
     df["potencia_cat"] = pd.cut(
-        df["potencia"], bins=BANDINGS["potencia"]
+        df["potencia"],
+        bins=BANDINGS["potencia"]
     )
     df["nivel_bonus_cat"] = pd.cut(
-        df["nivel_bonus"], bins=BANDINGS["nivel_bonus"]
+        df["nivel_bonus"],
+        bins=BANDINGS["nivel_bonus"]
     )
-
-    df["edad_cat"] = pd.cut(df["edad_conductor"], bins=BANDAS_EDAD)
+    df["edad_cat"] = pd.cut(
+        df["edad_conductor"],
+        bins=BANDAS_EDAD
+    )
 
     return df
 

@@ -1,0 +1,11 @@
+cartera.db
+.streamlit/secrets.toml
+__pycache__/
+.venv/
+
+# Archivos y carpetas que no se deben subir
+*.pkl
+__pycache__/
+.venv/
+.streamlit/secrets.toml
+cartera.db
